@@ -1,0 +1,66 @@
+  <div class="container">
+			<div class="row main">
+				<div class="panel-heading">
+	               <div class="panel-title text-center">
+	               		<h1 class="title">New User</h1>
+	               		<hr />
+	               	</div>
+	            </div>
+				<div class="main-login main-center">
+          <form class="fos_user_registration_register form-horizontal" name="fos_user_registration_register" method="post" action="/register/">
+
+						<div class="form-group">
+							<label for="fos_user_registration_form_email" class="cols-sm-2 control-label">Your Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="fos_user_registration_form[email]" id="fos_user_registration_form_email"  placeholder="Enter your Email" required/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="fos_user_registration_form_username" class="cols-sm-2 control-label">Username</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="fos_user_registration_form[username]" id="fos_user_registration_form_username"  placeholder="Enter your Username" required/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="fos_user_registration_form_plainPassword_first" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="fos_user_registration_form[plainPassword][first]" id="fos_user_registration_form_plainPassword_first"  placeholder="Enter your Password" required/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="fos_user_registration_form_plainPassword_second" class="cols-sm-2 control-label">Confirm Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="fos_user_registration_form[plainPassword][second]" id="fos_user_registration_form_plainPassword_second"  placeholder="Confirm your Password" required/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group ">
+							<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Register"></input>
+						</div>
+						<div class="login-register">
+				            <a href="/login">Login</a>
+				    </div>
+          </form>
+
+
+          {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+          {{ form_end(form) }}
+
+				</div>
+			</div>
+		</div>

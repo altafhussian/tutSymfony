@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>{% block title %}Symfony Tweaks{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+      {% block stylesheets %}
+      <style>
+        #form_due_date_date{
+          margin-top: -2px;
+        }
+        #form_due_date_time{
+          margin-top: -2px;
+          margin-left: 2px;
+        }
+        .bold{
+          font-weight: bold;
+        }
+	.navbar-nav .fltright{
+	 float: right !important;
+	}
+      </style>
+      {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/list">Todolist</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav" style="width: 85%">
+            <li class="{% if (app.request.attributes.get('_route') == 'todo_list')  or (app.request.attributes.get('_route') == 'todo_edit')  or (app.request.attributes.get('_route') == 'todo_details') %}active{% endif %}"><a href="/list">Home</a></li>
+            <li class="{% if app.request.attributes.get('_route') == 'todo_create' %}active{% endif %}"><a href="/todos/create">Create</a></li>
+            <li class="{% if app.request.attributes.get('_route') == 'controller_service' %}active{% endif %} fltright"><a href="/testBundle">Controller Service</a></li>
+            <li class="{% if app.request.attributes.get('_route') == 'bundle_service' %}active{% endif %} fltright"><a href="/testing/notifications">Bundle Service</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+    <br><br><br>
+    {% for flash_message in app.session.flashbag.get('notice') %}
+    <div class="alert alert-success fade1">{{flash_message}}</div>
+    {% endfor %}
+
+    {% for flash_message in app.session.flashbag.get('error') %}
+    <div class="alert alert-danger fade1">{{flash_message}}</div>
+    {% endfor %}
+     {% block body %}{% endblock %}
+    </div>
+    </div>
+    </div><!-- /.container -->
+  {% block javascripts %}
+    <script type="text/javascript" src="{{ asset('bundles/js/jquery.min.js') }}"></script>
+    <script>
+      $(document).ready(function(){
+          $(".fade1").fadeOut(900);
+      });
+    </script>
+  {% endblock %}
+  </body>
+</html>

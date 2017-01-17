@@ -1,0 +1,16 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+#    parameter_name: value
+     sample.notification.class: SampleBundle\Bundle\NotificationBundle\Controller\NotificationController
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+     app.hello_controller:
+        class: AppBundle\Controller\HelloController
+        arguments: ['@templating']
+     sample.notify:
+        class: "%sample.notification.class%"
+        arguments: ['@session']

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+</br></br></br>
+<a href="/list" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left" style="padding-right: 7px;"></span>Back to Todos</a>
+<h2 class=page-header>{{todo.name}}</h2>
+<ul class=list-group>
+<li class=list-group-item><span class=bold>Category : </span> {{todo.category}}</li>
+<li class=list-group-item><span class=bold>Description : </span> {{todo.description}}</li>
+<li class=list-group-item><span class=bold>Due: </span> {{todo.duedate | date('F j, Y, g:i a')}}</li>
+</ul>
+
+{% endblock %}

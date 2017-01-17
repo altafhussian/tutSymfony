@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% if notifications is defined %}
+    {% for notification in notifications %}
+        {{ notification.message }}
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
+

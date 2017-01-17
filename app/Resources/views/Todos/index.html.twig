@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+</br></br></br></br>
+   <table class=table table-bordered>
+    <thead>
+      <tr>
+        <th>Todo</th>
+         <th>Assigned Date</th>
+        <th>Due Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for todo in todos %}
+      <tr>
+        <td>{{todo.name}}</td>
+        <td>{{todo.createDate | date('F j, Y, g:i a')}}</td>
+        <td>{{todo.duedate | date('F j, Y, g:i a')}}</td>
+        <td>
+        <a href=todos/details/{{todo.id}} class="btn btn-success" data-toggle="tooltip" title="View"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <a href=todos/edit/{{todo.id}} class="btn btn-default" data-toggle="tooltip" title="Edit"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a href=todos/delete/{{todo.id}} class="btn btn-danger" data-toggle="tooltip" title="Delete" onclick="return confirm('Are you sure you want to delete?')"><span class="glyphicon glyphicon-remove"></span></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
