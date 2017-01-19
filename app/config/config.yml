@@ -18,7 +18,7 @@ framework:
         strict_requirements: ~
     form:            ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }
+    validation:      { enable_annotations: true, enabled: true }
     #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
@@ -76,3 +76,13 @@ fos_user:
     user_class: AppBundle\Entity\User
     group:
         group_class: AppBundle\Entity\Group
+vich_uploader:
+    db_driver: orm 
+    mappings:
+        todo_file:
+            uri_prefix:         /uploads/files
+            upload_destination: '%kernel.root_dir%/../web/uploads/files'
+
+            inject_on_load:     true 
+            delete_on_update:   true
+            delete_on_remove:   true

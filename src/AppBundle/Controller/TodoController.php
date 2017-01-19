@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ButtonType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 use AppBundle\Entity\todo;
 
@@ -45,6 +47,9 @@ class TodoController extends Controller
       ->add('description', null, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
       // ->add('priority', ChoiceType::class, array('choices' => array('Low' => 'Low', 'Normal' => 'Normal', 'High'=>'High'), 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
       ->add('due_date', DateTimeType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px;display:inline-flex')))
+      //->add('imageFile', FileType::class, array('label' => 'PDF file'))
+      ->add('imageFile', VichFileType::class, ['required' => false, 'attr' => array('style' => 'padding-bottom: 10px')])
+      ->add('imageName', HiddenType::class, array('data' => 'Image Name'))
       ->add('Save', SubmitType::class, array('label'=> 'Create Todo', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px;float: left;background:#4d4d4d;border-color:#333333;')))
       //->add('Cancel', SubmitType::class, array('label'=> 'Cancel', 'attr' => array('class' => 'btn btn-default', 'style' => 'margin-bottom:15px; margin-left: 10px')))
       ->getForm();
