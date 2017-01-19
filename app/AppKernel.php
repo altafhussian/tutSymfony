@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             new todo\Bundle\SampleBundle\todoBundleSampleBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new SampleBundle\Bundle\NotificationBundle\SampleNotificationBundle(),
-	    new Vich\UploaderBundle\VichUploaderBundle(),
+	          new Vich\UploaderBundle\VichUploaderBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
