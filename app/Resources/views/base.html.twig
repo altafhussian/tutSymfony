@@ -28,6 +28,19 @@
 	.navbar-nav .fltright{
 	 float: right !important;
 	}
+	.btn_color{
+          background: #4d4d4d;
+          border-color: #333333;
+        }
+        .btn_color:hover{
+          background: #333333;
+          border-color: #333333;
+        }
+        .btn_color:focus{
+          background: #333333;
+          border-color: #333333;
+        }
+
       </style>
       {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -48,6 +61,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav" style="width: 85%">
             <li class="{% if (app.request.attributes.get('_route') == 'todo_list')  or (app.request.attributes.get('_route') == 'todo_edit')  or (app.request.attributes.get('_route') == 'todo_details') %}active{% endif %}"><a href="/list">Home</a></li>
+	          <li class="fltright"><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out"></span></a></li>
             <li class="{% if app.request.attributes.get('_route') == 'todo_create' %}active{% endif %}"><a href="/todos/create">Create</a></li>
             <li class="{% if app.request.attributes.get('_route') == 'controller_service' %}active{% endif %} fltright"><a href="/testBundle">Controller Service</a></li>
             <li class="{% if app.request.attributes.get('_route') == 'bundle_service' %}active{% endif %} fltright"><a href="/testing/notifications">Bundle Service</a></li>
@@ -58,7 +72,9 @@
     <div class="container">
     <div class="row">
     <div class="col-md-12">
-    <br><br><br>
+    </br>
+    </br>
+    </br>
     {% for flash_message in app.session.flashbag.get('notice') %}
     <div class="alert alert-success fade1">{{flash_message}}</div>
     {% endfor %}
