@@ -65,6 +65,7 @@
             <li class="{% if app.request.attributes.get('_route') == 'todo_create' %}active{% endif %}"><a href="/todos/create">Create</a></li>
             <li class="{% if app.request.attributes.get('_route') == 'controller_service' %}active{% endif %} fltright"><a href="/testBundle">Controller Service</a></li>
             <li class="{% if app.request.attributes.get('_route') == 'bundle_service' %}active{% endif %} fltright"><a href="/testing/notifications">Bundle Service</a></li>
+            <li class="{% if app.request.attributes.get('_route') == 'send_mail' %}active{% endif %} fltright"><a href="/mail">Send Mail</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
